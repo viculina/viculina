@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test de Bondad</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    #quiz-container {
+      max-width: 600px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+    <div id="quiz-container">
+        <h1>Test de Bondad</h1>
+        <p>Responde las siguientes preguntas para determinar tu nivel de bondad:</p>
+        <form id="quiz-form">
+          <!-- Preguntas -->
+          <label for="q1">1. ¿Ayudas a los demás sin esperar nada a cambio?</label>
+          <select id="q1" name="q1">
+            <option value="1">Sí</option>
+            <option value="0">No</option>
+          </select>
+          <br><br>
+          <label for="q1">1. ¿Te consideras una persona extrovertida?</label>
+          <select id="q1" name="q1">
+            <option value="1">Sí</option>
+            <option value="0">No</option>
+          </select>
+          <br><br>
+          <label for="q1">3. ¿Disfrutas pasar tiempo a solas?</label>
+          <select id="q1" name="q1">
+            <option value="1">Sí</option>
+            <option value="0">No</option>
+          </select>
+          <br><br>
+          <label for="q1">4. ¿Eres una persona organizada?</label>
+          <select id="q1" name="q1">
+            <option value="1">Sí</option>
+            <option value="0">No</option>
+          </select>
+          <br><br>
+          <label for="q1">4. ¿Eres perseverante?</label>
+          <select id="q1" name="q1">
+            <option value="1">Sí</option>
+            <option value="0">No</option>
+          </select>
+          <br><br>
+          <label for="q1">5. ¿Te consideras una persona honesta?</label>
+          <select id="q1" name="q1">
+            <option value="1">Sí</option>
+            <option value="0">No</option>
+          </select>
+          <br><br>
+          <label for="q1">6. ¿Te cuesta confiar en los demás?</label>
+          <select id="q1" name="q1">
+            <option value="1">Sí</option>
+            <option value="0">No</option>
+          </select>
+          <br><br>
+          <label for="q1">7. ¿Eres una persona optimista?</label>
+          <select id="q1" name="q1">
+            <option value="1">Sí</option>
+            <option value="0">No</option>
+          </select>
+          <br><br>
+          <label for="q1">8. ¿Te gusta planificar?</label>
+          <select id="q1" name="q1">
+            <option value="1">Sí</option>
+            <option value="0">No</option>
+          </select>
+          <br><br>
+        <label for="q1">9.¿Eres indeciso/a?</label>
+          <select id="q1" name="q1">
+            <option value="1">Sí</option>
+            <option value="0">No</option>
+          </select>
+          <br><br>
+          <label for="q1">10. ¿Te gusta liderar grupos?</label>
+          <select id="q1" name="q1">
+            <option value="1">Sí</option>
+            <option value="0">No</option>
+          </select>
+          <br>
+          <button type="button" onclick="calcularResultado()">Obtener Resultado</button>
+        </form>
+    
+        <div id="resultado"></div>
+      </div>
+  <script>
+    // Contadores para respuestas Sí y No
+    var contadorSi = 0;
+    var contadorNo = 0;
+
+    function calcularResultado() {
+      // Obtener respuestas
+      var preguntas = document.querySelectorAll('select');
+      
+      // Actualizar contadores
+      preguntas.forEach(function(pregunta) {
+        var respuesta = parseInt(pregunta.value);
+        if (respuesta === 1) {
+          contadorSi++;
+        } else {
+          contadorNo++;
+        }
+      });
+
+      // Mostrar el resultado parcial
+      var resultadoDiv = document.getElementById('resultado');
+      if (contadorSi > contadorNo) {
+        resultadoDiv.innerHTML = "Eres una persona amable";
+      } else {
+        resultadoDiv.innerHTML = "Podrías intentar mejorar en algunas acciones";
+      }
+    }
+  </script>
+</body>
+</html>
+
